@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Movies>
+    <Movie>
+        <title>Game Of Thrones</title>
+        <director>Andrzej</director>
+        <genre>Fantasy</genre>
+        <releaseDate>2015-04-15</releaseDate>
+        <actors>
+            <actor>Bolton</actor>
+            <actor>Stark</actor>
+        </actors>
+    </Movie>
+
+    <Movie>
+        <title>Wiedzmin</title>
+        <director>Sapek</director>
+        <genre>Fantasy</genre>
+        <releaseDate>2016-04-15</releaseDate>
+        <actors>
+            <actor>Geralt</actor>
+            <actor>Jaskier</actor>
+        </actors>
+    </Movie>
+
+    <Movie>
+        <title>Hello World</title>
+        <director>Pro</director>
+        <genre>Political</genre>
+        <releaseDate>2018-01-12</releaseDate>
+        <actors>
+            <actor>Jarek</actor>
+            <actor>Marcin</actor>
+        </actors>
+    </Movie>
+</Movies>

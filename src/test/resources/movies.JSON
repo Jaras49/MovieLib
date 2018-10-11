@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Game of Thrones",
+    "director": "Andrzej",
+    "genre": "Fantasy",
+    "releaseDate": "2015-04-15",
+    "actors": [
+      "Bolton",
+      "Stark"
+    ]
+  },
+  {
+    "title": "Fast and",
+    "director": "Mieczyslaw",
+    "genre": "Action",
+    "releaseDate": "2014-04-15",
+    "actors": [
+      "Reinmar",
+      "Geralt"
+    ]
+  }
+]
