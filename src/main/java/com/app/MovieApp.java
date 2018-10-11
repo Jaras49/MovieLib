@@ -1,5 +1,6 @@
 package com.app;
 
+import com.app.data.export.ExportService;
 import com.app.data.input.FileToObjectReader;
 import com.app.data.input.InputDataException;
 import com.app.data.input.Reader;
@@ -17,11 +18,13 @@ public class MovieApp {
     private ConsoleInputReader inputReader;
     private DataStorage dataStorage;
     private Reader reader;
+    private ExportService exportService;
 
-    public MovieApp(DataStorage dataStorage, FileToObjectReader reader) {
+    public MovieApp(DataStorage dataStorage, FileToObjectReader reader, ExportService exportService) {
         inputReader = new ConsoleInputReader();
         this.dataStorage = dataStorage;
         this.reader = reader;
+        this.exportService = exportService;
     }
 
     public void run() {
@@ -57,6 +60,9 @@ public class MovieApp {
                         break;
                     case SHOW_ALL:
                         printResults(dataStorage.getData());
+                        break;
+                    case EXPORT_TO_EXCEL:
+                        exportToExcel(dataStorage.getData());
                         break;
                 }
             } catch (ArrayIndexOutOfBoundsException e) {
@@ -104,7 +110,6 @@ public class MovieApp {
 
     private void loadData() {
         System.out.println("Enter file path");
-        //C:\Users\Jaras\Desktop\programowanie\movieApp\src\main\resources\movies.json
         try {
             String path = inputReader.getInput();
             List<Movie> movies = reader.process(Paths.get(path));
@@ -115,6 +120,18 @@ public class MovieApp {
             System.err.println("Invalid file path");
         } catch (IOException ex) {
             System.err.println("Failed to load data");
+        }
+    }
+
+    private void exportToExcel(List<Movie> movies) {
+        System.out.println("Enter location where to export data");
+        try {
+            String path = inputReader.getInput();
+            exportService.export(Paths.get(path), movies);
+        } catch (NullPointerException | InvalidPathException ex) {
+            System.err.println("Invalid export path");
+        } catch (IOException ex) {
+            System.err.println("Failed to export data");
         }
     }
 }

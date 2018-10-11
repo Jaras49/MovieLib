@@ -8,7 +8,8 @@ public enum MainOptions {
     FIND_BY_ACTOR(4, "Find by actor"),
     FIND_BY_GENRE(5, "Find by Genre"),
     FIND_BY_DATE_RANGE (6, "Find by date"),
-    SHOW_ALL(7, "Show all movies");
+    SHOW_ALL(7, "Show all movies"),
+    EXPORT_TO_EXCEL(8, "Export data to excel");
 
     private int value;
     private String description;
