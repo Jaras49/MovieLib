@@ -40,7 +40,7 @@ public class ExcelExportService implements ExportService<Path> {
         workbook = new HSSFWorkbook();
         Sheet sheet = workbook.createSheet(SHEET_NAME);
 
-        int columnsNumber = Movie.class.getDeclaredFields().length + 2;
+        int columnsNumber = Movie.class.getDeclaredFields().length;
 
         createHeaderRow(sheet, columnsNumber);
         fillColumnsData(sheet, movies);
