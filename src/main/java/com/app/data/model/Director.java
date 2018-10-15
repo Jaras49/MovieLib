@@ -1,8 +1,14 @@
 package com.app.data.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public final class Director extends Person {
 
-    public Director(String firstname, String lastname) {
+    @JsonCreator
+    public Director(
+            @JsonProperty("firstName") String firstname,
+            @JsonProperty("lastName") String lastname) {
         super(firstname, lastname);
     }
 
