@@ -6,5 +6,11 @@ public final class Actor extends Person {
         super(firstname, lastname);
     }
 
-
+    @Override
+    public String toString() {
+        return "Actor{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }
