@@ -28,15 +28,7 @@ public final class Movie {
         this.releaseDate = releaseDate;
         this.actors = actors;
     }
-/**
-    private Movie() {
-        this.title = null;
-        this.director = null;
-        this.genre = null;
-        this.releaseDate = null;
-        this.actors = null;
-    }
-*/
+
     public String getTitle() {
         return title;
     }
