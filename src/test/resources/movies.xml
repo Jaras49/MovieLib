@@ -2,34 +2,61 @@
 <Movies>
     <Movie>
         <title>Game Of Thrones</title>
-        <director>Andrzej</director>
+        <director>
+            <firstName>Andrzej</firstName>
+            <lastName>Andrzej</lastName>
+        </director>
         <genre>Fantasy</genre>
         <releaseDate>2015-04-15</releaseDate>
         <actors>
-            <actor>Bolton</actor>
-            <actor>Stark</actor>
+            <actor>
+                <firstName>Bolton</firstName>
+                <lastName>Bolton</lastName>
+            </actor>
+            <actor>
+                <firstName>Stark</firstName>
+                <lastName>Stark</lastName>
+            </actor>
         </actors>
     </Movie>
 
     <Movie>
         <title>Wiedzmin</title>
-        <director>Sapek</director>
+        <director>
+            <firstName>Andrzej</firstName>
+            <lastName>Sapek</lastName>
+        </director>
         <genre>Fantasy</genre>
         <releaseDate>2016-04-15</releaseDate>
         <actors>
-            <actor>Geralt</actor>
-            <actor>Jaskier</actor>
+            <actor>
+                <firstName>Geralt</firstName>
+                <lastName>Z Rivii</lastName>
+            </actor>
+            <actor>
+                <firstName>Jaskier</firstName>
+                <lastName>Trubadur</lastName>
+            </actor>
         </actors>
     </Movie>
 
     <Movie>
         <title>Hello World</title>
-        <director>Pro</director>
+        <director>
+            <firstName>Pro</firstName>
+            <lastName>Pro</lastName>
+        </director>
         <genre>Political</genre>
         <releaseDate>2018-01-12</releaseDate>
         <actors>
-            <actor>Jarek</actor>
-            <actor>Marcin</actor>
+            <actor>
+                <firstName>Jarek</firstName>
+                <lastName>Jarek</lastName>
+            </actor>
+            <actor>
+                <firstName>Marcin</firstName>
+                <lastName>Marcin</lastName>
+            </actor>
         </actors>
     </Movie>
 </Movies>

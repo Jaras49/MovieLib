@@ -94,7 +94,7 @@ public class MovieApp {
     }
 
     private void findByDirector() {
-        System.out.println("Enter director");
+        System.out.println("Enter director last name");
         printResults(dataStorage.getByDirector(inputReader.getInput()));
     }
 
@@ -104,7 +104,7 @@ public class MovieApp {
     }
 
     private void findByActor() {
-        System.out.println("Enter actor");
+        System.out.println("Enter actor last name");
         printResults(dataStorage.getByActor(inputReader.getInput()));
     }
 

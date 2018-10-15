@@ -10,38 +10,30 @@ import java.util.Objects;
 public final class Movie {
 
     private final String title;
-    private final String director;
+    private final Director director;
     private final String genre;
     private final LocalDate releaseDate;
-    private final List<String> actors;
+    private final List<Actor> actors;
 
     @JsonCreator
     public Movie(
             @JsonProperty("title") String title,
-            @JsonProperty("director") String director,
+            @JsonProperty("director") Director director,
             @JsonProperty("genre") String genre,
             @JsonProperty("releaseDate") LocalDate releaseDate,
-            @JsonProperty("actors") List<String> actors) {
+            @JsonProperty("actors") List<Actor> actors) {
         this.title = title;
         this.director = director;
         this.genre = genre;
         this.releaseDate = releaseDate;
         this.actors = actors;
     }
-/**
-    private Movie() {
-        this.title = null;
-        this.director = null;
-        this.genre = null;
-        this.releaseDate = null;
-        this.actors = null;
-    }
-*/
+
     public String getTitle() {
         return title;
     }
 
-    public String getDirector() {
+    public Director getDirector() {
         return director;
     }
 
@@ -53,14 +45,14 @@ public final class Movie {
         return releaseDate;
     }
 
-    public List<String> getActors() {
+    public List<Actor> getActors() {
         return actors;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Movie)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Movie movie = (Movie) o;
         return Objects.equals(title, movie.title) &&
                 Objects.equals(director, movie.director) &&
@@ -71,7 +63,6 @@ public final class Movie {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(title, director, genre, releaseDate, actors);
     }
 
@@ -79,7 +70,7 @@ public final class Movie {
     public String toString() {
         return "Movie{" +
                 "title='" + title + '\'' +
-                ", director='" + director + '\'' +
+                ", director=" + director +
                 ", genre='" + genre + '\'' +
                 ", releaseDate=" + releaseDate +
                 ", actors=" + actors +

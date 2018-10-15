@@ -1,22 +1,40 @@
 [
   {
     "title": "Game of Thrones",
-    "director": "Andrzej",
+    "director": {
+      "firstName": "Andrzej",
+      "lastName": "Andrzej"
+    },
     "genre": "Fantasy",
     "releaseDate": "2015-04-15",
     "actors": [
-      "Bolton",
-      "Stark"
+      {
+        "firstName": "Bolton",
+        "lastName": "Bolton"
+      },
+      {
+        "firstName": "Stark",
+        "lastName": "Stark"
+      }
     ]
   },
   {
     "title": "Fast and",
-    "director": "Mieczyslaw",
+    "director": {
+      "firstName": "Mieczyslaw",
+      "lastName": "Mieczyslaw"
+    },
     "genre": "Action",
     "releaseDate": "2014-04-15",
     "actors": [
-      "Reinmar",
-      "Geralt"
+      {
+        "firstName": "Reinmar",
+        "lastName": "Reinmar"
+      },
+      {
+        "firstName": "Geralt",
+        "lastName": "Geralt"
+      }
     ]
   }
 ]
