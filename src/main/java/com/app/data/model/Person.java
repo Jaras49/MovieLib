@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public abstract class Person {
 
-    private final String firstName;
-    private final String lastName;
+    protected final String firstName;
+    protected final String lastName;
 
     protected Person(String firstName, String lastName) {
         this.firstName = firstName;
