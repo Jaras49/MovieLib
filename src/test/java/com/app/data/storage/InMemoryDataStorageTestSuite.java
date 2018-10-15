@@ -1,5 +1,7 @@
 package com.app.data.storage;
 
+import com.app.data.model.Actor;
+import com.app.data.model.Director;
 import com.app.data.model.Movie;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,11 +22,16 @@ public class InMemoryDataStorageTestSuite {
         //Given
         dataStorage = new InMemoryDataStorage();
         dataStorage.persist(Arrays.asList(
-                new Movie("xxx", "yyy", "action", LocalDate.of(1992, 8, 1), Arrays.asList("x", "y")),
-                new Movie("xxx", "yyy", "action", LocalDate.of(1998, 8, 1), Arrays.asList("z", "a")),
-                new Movie("xxx", "yyy", "fantasy", LocalDate.of(2000, 8, 1), Arrays.asList("b", "c")),
-                new Movie("xxx", "aaa", "fantasy", LocalDate.of(2005, 8, 1), Arrays.asList("b", "c")),
-                new Movie("zzz", "aaa", "fantasy", LocalDate.of(2015, 8, 1), Arrays.asList("b", "c"))
+                new Movie("xxx", new Director("Andrzej", "Nowak"), "action", LocalDate.of(1992, 8, 1),
+                        Arrays.asList(new Actor("x", "y"), new Actor("y", "x"))),
+                new Movie("xxx", new Director("Andrzej", "Nowak"), "action", LocalDate.of(1998, 8, 1),
+                        Arrays.asList(new Actor("z", "z"), new Actor("a", "a"))),
+                new Movie("xxx", new Director("Andrzej", "Nowak"), "fantasy", LocalDate.of(2000, 8, 1),
+                        Arrays.asList(new Actor("b", "b"), new Actor("c", "c"))),
+                new Movie("xxx", new Director("Marcin", "Kowal"), "fantasy", LocalDate.of(2005, 8, 1),
+                        Arrays.asList(new Actor("b", "b"), new Actor("c", "c"))),
+                new Movie("zzz", new Director("Marcin", "Kowal"), "fantasy", LocalDate.of(2015, 8, 1),
+                        Arrays.asList(new Actor("b", "b"), new Actor("c", "c")))
         ));
     }
 
@@ -82,8 +89,8 @@ public class InMemoryDataStorageTestSuite {
     public void shouldGetDirector() {
 
         //When
-        List<Movie> byDirector1 = dataStorage.getByDirector("YYy");
-        List<Movie> byDirector2 = dataStorage.getByDirector("aaA");
+        List<Movie> byDirector1 = dataStorage.getByDirector("NoWak");
+        List<Movie> byDirector2 = dataStorage.getByDirector("kowal");
 
         //Then
         assertEquals(3, byDirector1.size());

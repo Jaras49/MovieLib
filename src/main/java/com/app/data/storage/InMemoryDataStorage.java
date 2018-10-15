@@ -1,6 +1,7 @@
 package com.app.data.storage;
 
 import com.app.data.model.Movie;
+import com.app.data.model.Person;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -27,10 +28,11 @@ public final class InMemoryDataStorage implements DataStorage {
     }
 
     @Override
-    public List<Movie> getByActor(String actor) {
+    public List<Movie> getByActor(String actorLastName) {
         return movies.stream()
                 .filter(movie -> movie.getActors().stream()
-                        .anyMatch(n -> n.equalsIgnoreCase(actor)))
+                        .map(Person::getLastName)
+                        .anyMatch(n -> n.equalsIgnoreCase(actorLastName)))
                 .collect(Collectors.toList());
     }
 
@@ -56,9 +58,9 @@ public final class InMemoryDataStorage implements DataStorage {
     }
 
     @Override
-    public List<Movie> getByDirector(String director) {
+    public List<Movie> getByDirector(String directorLastName) {
         return movies.stream()
-                .filter(movie -> movie.getDirector().equalsIgnoreCase(director))
+                .filter(movie -> movie.getDirector().getLastName().equalsIgnoreCase(directorLastName))
                 .collect(Collectors.toList());
     }
 }

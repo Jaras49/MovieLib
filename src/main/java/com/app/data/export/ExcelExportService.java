@@ -1,11 +1,13 @@
 package com.app.data.export;
 
+import com.app.data.model.Director;
 import com.app.data.model.Movie;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -38,7 +40,7 @@ public class ExcelExportService implements ExportService<Path> {
         workbook = new HSSFWorkbook();
         Sheet sheet = workbook.createSheet(SHEET_NAME);
 
-        int columnsNumber = Movie.class.getDeclaredFields().length;
+        int columnsNumber = Movie.class.getDeclaredFields().length + 2;
 
         createHeaderRow(sheet, columnsNumber);
         fillColumnsData(sheet, movies);
@@ -77,7 +79,7 @@ public class ExcelExportService implements ExportService<Path> {
             Row row = sheet.createRow(rowNumber++);
 
             row.createCell(0).setCellValue(movie.getTitle());
-            row.createCell(1).setCellValue(movie.getDirector());
+            row.createCell(1).setCellValue(getDirector(movie));
             row.createCell(2).setCellValue(movie.getGenre());
 
             Cell dateCell = row.createCell(3);
@@ -101,6 +103,12 @@ public class ExcelExportService implements ExportService<Path> {
 
     private String getActors(Movie movie) {
         return movie.getActors().stream()
+                .map(actor -> actor.getFirstName() + " " + actor.getLastName())
                 .collect(Collectors.joining(ACTORS_DELIMITER));
+    }
+
+    private String getDirector(Movie movie) {
+        Director director = movie.getDirector();
+        return director.getFirstName() + " " + director.getLastName();
     }
 }

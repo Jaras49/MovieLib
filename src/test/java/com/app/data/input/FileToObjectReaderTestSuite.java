@@ -1,5 +1,7 @@
 package com.app.data.input;
 
+import com.app.data.model.Actor;
+import com.app.data.model.Director;
 import com.app.data.model.Movie;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,8 +32,9 @@ public class FileToObjectReaderTestSuite {
 
         //Given
         URI uri = this.getClass().getClassLoader().getResource(MOVIES_JSON_FILENAME).toURI();
-        Movie expectedMovie = new Movie("Game of Thrones", "Andrzej", "Fantasy",
-                LocalDate.of(2015, 4, 15), Arrays.asList("Bolton", "Stark"));
+        Movie expectedMovie = new Movie("Game of Thrones", new Director("Andrzej", "Andrzej"), "Fantasy",
+                LocalDate.of(2015, 4, 15),
+                Arrays.asList(new Actor("Bolton", "Bolton"), new Actor("Stark", "Stark")));
 
         //When
         List<Movie> movies = reader.process(Paths.get(uri));
@@ -42,12 +45,13 @@ public class FileToObjectReaderTestSuite {
     }
 
     @Test
-    public void shouldReadXmlFile() throws URISyntaxException,Exception {
+    public void shouldReadXmlFile() throws URISyntaxException, Exception {
 
         //Given
         URI uri = this.getClass().getClassLoader().getResource(MOVIES_XML_FILENAME).toURI();
-        Movie expectedMovie = new Movie("Hello World", "Pro", "Political",
-                LocalDate.of(2018, 1, 12), Arrays.asList("Jarek", "Marcin"));
+        Movie expectedMovie = new Movie("Hello World", new Director("Pro", "Pro"), "Political",
+                LocalDate.of(2018, 1, 12),
+                Arrays.asList(new Actor("Jarek", "Jarek"), new Actor("Marcin", "Marcin")));
 
         //When
         List<Movie> movies = reader.process(Paths.get(uri));
